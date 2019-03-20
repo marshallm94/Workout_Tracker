@@ -6,7 +6,7 @@ class Split(object):
 
 	def __init__(self, name):
 
-		self.split = list()
+		self.split = dict()
 		self.create_split()
 		self.start_date = time.ctime()
 		self.name = name
@@ -20,19 +20,23 @@ class Split(object):
 			if usr_input == 'y':
 
 				name = str(input("Workout name: "))
-				self.split.append(Workout(name))
+				self.split[name] = Workout(name)
 
-				print("\nCurrent split:", self.__str__())
+				print("\nCurrent split:\n", self.__str__())
 
 			elif usr_input == 'n':
 				break
+
+	def start_workout(self, workout_name):
+
+		self.split[workout_name].start_workout()
 
 
 	def __str__(self):
 
 		out = "\n"
-		for workout in self.split:
-			out += workout.name + f" | {workout._get_total_sets()} sets\n=========="
+		for name, workout in self.split.items():
+			out += name + f" | {workout._get_total_sets()} sets\n=========="
 			out += "\t" + workout + "\n"
 		return out
 	

@@ -8,7 +8,7 @@ class Exercise(object):
 		self.number_sets = number_sets
 		self.target_reps = target_reps
 		self.weight_matrix = np.zeros((1, number_sets))
-		self.rep_mnatrix = np.zeros((1, number_sets))
+		self.rep_matrix = np.zeros((1, number_sets))
 
 	def add_set(self, set_number, weight, reps):
 		

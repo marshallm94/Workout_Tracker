@@ -38,8 +38,16 @@ class Workout(object):
 	def start_workout(self):
 
 		for exercise in self.routine:
-			for i in exercise.number_sets:
-				exercise.add_set(i, weight, reps)
+
+			print(f"Current Exercise: {exercise}")
+
+			for i in range(1, exercise.number_sets + 1):
+
+				print(f"Set {i}/{exercise.number_sets}")
+				weight = int(input("Weight used: "))
+				reps = int(input("Reps completed: "))
+
+				exercise.add_set(i + 1, weight, reps)
 
 	def get_total_volume(self):
 		pass
@@ -56,8 +64,10 @@ class Workout(object):
 	def __str__(self):
 
 		out = "\n"
+
 		for exercise in self.routine:
 			out += exercise + "\n"
+
 		return out
 
 	def __add__(self, other):
