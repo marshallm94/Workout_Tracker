@@ -23,9 +23,11 @@ class Exercise(object):
 	def __add__(self, other):
 
 		if isinstance(other, str):
+
 			return self.__str__() + other			
 
 	def __radd__(self, other):
 
 		if isinstance(other, str):
+
 			return other + self.__str__()

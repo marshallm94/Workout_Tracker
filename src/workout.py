@@ -30,7 +30,7 @@ class Workout(object):
 
 				self.add_exercise(name, number_sets, target_reps)
 
-				print("\nCurrent workout:", self.__str__())
+				print(f"\nCurrent workout: Total sets = {self._get_total_sets()}", self.__str__())
 
 			elif usr_input == 'n':
 				break
@@ -44,11 +44,33 @@ class Workout(object):
 	def get_total_volume(self):
 		pass
 
+	def _get_total_sets(self):
+
+		out = 0
+
+		for exercise in self.routine:
+			out += exercise.number_sets
+
+		return out
+
 	def __str__(self):
 
 		out = "\n"
 		for exercise in self.routine:
 			out += exercise + "\n"
 		return out
+
+	def __add__(self, other):
+
+		if isinstance(other, str):
+
+			return self.__str__() + other
+
+	def __radd__(self, other):
+
+		if isinstance(other, str):
+
+			return other + self.__str__()
+
 
 
