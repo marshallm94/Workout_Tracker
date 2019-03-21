@@ -12,8 +12,8 @@ class Exercise(object):
 
 	def add_set(self, set_number, weight, reps):
 		
-		self.weight_matrix[set_number - 1] = weight
-		self.rep_matrix[set_number - 1] = reps
+		self.weight_matrix[0, set_number] = weight
+		self.rep_matrix[0, set_number] = reps
 
 	def __str__(self):
 
