@@ -7,9 +7,6 @@ class Workout(object):
 	def __init__(self, name):
 	
 		self.routine = list()
-		self.create_routine()
-		self.date = time.ctime()
-		self.total_volume = self.get_total_volume()
 		self.name = name
 
 	def add_exercise(self, name, number_sets, target_reps):
@@ -35,22 +32,35 @@ class Workout(object):
 			elif usr_input == 'n':
 				break
 
-	def start_workout(self):
+	def start_workout(self, values_to_display=None):
+
+		self.start_date = time.ctime()
 
 		for exercise in self.routine:
 
 			print(f"Current Exercise: {exercise}")
 
-			for i in range(exercise.number_sets):
+			if values_to_display:
 
-				print(f"Set {i+1}/{exercise.number_sets}")
-				weight = int(input("Weight used: "))
-				reps = int(input("Reps completed: "))
+				for i in range(exercise.number_sets):
 
-				exercise.add_set(i, weight, reps)
+					display = f"Set {i+1}/{exercise.number_sets} | Previous values: {values_to_display[i]}"
+					print(display)
 
-	def get_total_volume(self):
-		pass
+					weight = int(input("Weight used: "))
+					reps = int(input("Reps completed: "))
+
+					exercise.add_set(i, weight, reps)	
+
+			if not values_to_display:
+
+				for i in range(exercise.number_sets):
+
+					print(f"Set {i+1}/{exercise.number_sets}")
+					weight = int(input("Weight used: "))
+					reps = int(input("Reps completed: "))
+
+					exercise.add_set(i, weight, reps)
 
 	def _get_total_sets(self):
 
@@ -81,6 +91,3 @@ class Workout(object):
 		if isinstance(other, str):
 
 			return other + self.__str__()
-
-
-
