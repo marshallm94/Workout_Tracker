@@ -36,23 +36,30 @@ class Workout(object):
 
 		self.start_date = time.ctime()
 
-		for exercise in self.routine:
+		if values_to_display:
 
-			print(f"Current Exercise: {exercise}")
+			for i in range(len(self.routine)):
 
-			if values_to_display:
+				exercise = self.routine[i]
 
-				for i in range(exercise.number_sets):
+				print(f"Current Exercise: {exercise}")
 
-					display = f"Set {i+1}/{exercise.number_sets} | Previous values: {values_to_display[i]}"
+				for j in range(exercise.number_sets):
+
+					display = f"Set {j+1}/{exercise.number_sets} | Previous values: {values_to_display[i][j]}"
 					print(display)
 
 					weight = int(input("Weight used: "))
 					reps = int(input("Reps completed: "))
+					print(exercise.weight_matrix)
+					exercise.add_set(j, weight, reps)	
+					print(exercise.weight_matrix)
 
-					exercise.add_set(i, weight, reps)	
+		elif not values_to_display:
 
-			if not values_to_display:
+			for exercise in self.routine:
+
+				print(f"Current Exercise: {exercise}")
 
 				for i in range(exercise.number_sets):
 

@@ -35,7 +35,7 @@ class Split(object):
 		if len(self.split[workout_name]) > 1:
 
 			previous_values = self._show_previous_values(workout_name)
-			
+			print(previous_values[0])
 			self.split[workout_name][-1].start_workout(previous_values)
 
 		elif len(self.split[workout_name]) == 1:
@@ -46,29 +46,32 @@ class Split(object):
 
 	def _copy_previous_workout(self, workout_name):
 
-		previous_workout = copy.deepcopy(self.split[workout_name][-1])
-
+		next_workout = copy.deepcopy(self.split[workout_name][-1])
+		
 		# setting the weight and rep matrices of what will be the next workout to zero	
-		for exercise in previous_workout.routine:
+		for exercise in next_workout.routine:
 
-			exercise.weight_matrix = np.zeros((1, exercise.number_sets))
-			exercise.rep_matrix = np.zeros((1, exercise.number_sets))
+			exercise._reset_matrices()
 
-		self.split[workout_name].append(previous_workout)
+		self.split[workout_name].append(next_workout)
 
 	def _show_previous_values(self, workout_name):
 
 		out = list()
+
 		for exercise in self.split[workout_name][-2].routine:
 
 			previous_weights = exercise.weight_matrix
 			previous_reps = exercise.rep_matrix
 
+			exercise_weights = list()
 			for i in range(previous_weights.shape[1]):
 
-				out.append(f"{previous_weights[0,i]} x {previous_reps[0,i]}")
+				exercise_weights.append(f"{previous_weights[0,i]} x {previous_reps[0,i]}")
 
-			return out
+			out.append(exercise_weights)
+		
+		return out
 
 	def __str__(self):
 

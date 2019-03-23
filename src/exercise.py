@@ -15,6 +15,11 @@ class Exercise(object):
 		self.weight_matrix[0, set_number] = weight
 		self.rep_matrix[0, set_number] = reps
 
+	def _reset_matrices(self):
+
+		self.weight_matrix = np.zeros((1, self.number_sets))
+		self.rep_matrix = np.zeros((1, self.number_sets))
+
 	def __str__(self):
 
 		out = f"""{self.name} | {self.number_sets} Sets | {self.target_reps} Reps"""
