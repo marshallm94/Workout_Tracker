@@ -35,7 +35,7 @@ class Split(object):
 		if len(self.split[workout_name]) > 1:
 
 			previous_values = self._show_previous_values(workout_name)
-			print(previous_values[0])
+
 			self.split[workout_name][-1].start_workout(previous_values)
 
 		elif len(self.split[workout_name]) == 1:

@@ -51,9 +51,8 @@ class Workout(object):
 
 					weight = int(input("Weight used: "))
 					reps = int(input("Reps completed: "))
-					print(exercise.weight_matrix)
-					exercise.add_set(j, weight, reps)	
-					print(exercise.weight_matrix)
+
+					exercise.add_set(j, weight, reps)
 
 		elif not values_to_display:
 
