@@ -10,10 +10,10 @@ app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 
 src_directory = os.path.join(os.getcwd(), "src/")
 user_directory = os.path.join(os.getcwd(), "users/")
+template_directory = os.path.join(os.getcwd(), "templates/")
 
-with open(os.path.join(user_directory, 'test.pickle'), 'rb') as tmp:
+with open(os.path.join(user_directory, 'marshall.pickle'), 'rb') as tmp:
 	marshall = pickle.load(tmp)
-
 
 class NameForm(FlaskForm):
 
@@ -23,8 +23,9 @@ class NameForm(FlaskForm):
 @app.route('/', methods=['GET','POST'])
 def index():
 
-	choices = ['Start Workout', 'Create Split']
-	return render_template('options.html', user=marshall)
+	#choices = ['Start Workout', 'Create Split']
+	template = os.path.join(template_directory, "options.html")
+	return render_template("options.html", user=marshall)
 
 
 #@app.route('/tmp', methods=['GET','POST'])
