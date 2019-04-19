@@ -11,3 +11,14 @@ class Person(object):
 	def add_split(self, name):
 
 		self.splits[name] = Split(name)	
+
+	def __str__(self):
+
+		out = f"{self.name}'s splits\n==========\n"
+		for split_name, split in self.splits.items():
+
+			out += split_name + "\n==========\n" + split.__str__()
+
+		return out
+
+			
