@@ -1,5 +1,5 @@
 import numpy as np
-from workout import Workout
+from .workout import Workout
 import copy
 import time
 

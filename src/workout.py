@@ -1,4 +1,4 @@
-from exercise import Exercise
+from .exercise import Exercise
 import numpy as np
 import time
 

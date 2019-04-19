@@ -1,5 +1,5 @@
 import numpy as np
-from split import Split
+from .split import Split
 
 class Person(object):
 
