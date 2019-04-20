@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>Workout Tracker | {{ title }}</title>
+	{% else %}
+		<title>Workout Tracker</title>
+	{% endif %}
+</head>
+<body>
+	{% block content %}{% endblock %}
+</body>
+</html>

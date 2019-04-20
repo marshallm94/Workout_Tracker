@@ -1,6 +1,6 @@
 import os
 import pickle
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, SubmitField
 from wtforms.validators import DataRequired
@@ -10,22 +10,26 @@ app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 
 src_directory = os.path.join(os.getcwd(), "src/")
 user_directory = os.path.join(os.getcwd(), "users/")
-template_directory = os.path.join(os.getcwd(), "templates/")
 
 with open(os.path.join(user_directory, 'marshall.pickle'), 'rb') as tmp:
 	marshall = pickle.load(tmp)
 
-class NameForm(FlaskForm):
+class OptionForm(FlaskForm):
 
-	name = StringField('Choose one of the options below: ', validators=[DataRequired()])
-	submit = SubmitField('Submit')
+	heading = 'Choose one of the options below:'
+	start_workout = SubmitField('Start Workout')
+	create_workout = SubmitField('Create Workout')
+	check_progress = SubmitField('Check Progress')
+	
 
 @app.route('/', methods=['GET','POST'])
 def index():
 
-	#choices = ['Start Workout', 'Create Split']
-	template = os.path.join(template_directory, "options.html")
-	return render_template("options.html", user=marshall)
+	form = OptionForm()
+	
+	return render_template("index2.html", form=form)
+
+	
 
 
 #@app.route('/tmp', methods=['GET','POST'])
