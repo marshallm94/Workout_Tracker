@@ -1,6 +1,6 @@
 import os
 import pickle
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, SubmitField
 from wtforms.validators import DataRequired
@@ -26,23 +26,15 @@ class OptionForm(FlaskForm):
 def index():
 
 	form = OptionForm()
-	
-	return render_template("index2.html", form=form)
 
-	
+	if 'create_workout' in request.form:
+		print('creating workout')
+	elif 'start_workout' in request.form:
+		print('starting workout')
+	elif 'check_progress' in request.form:
+		print('checking progress')
 
-
-#@app.route('/tmp', methods=['GET','POST'])
-#def tmp():
-#
-#	name = None
-#	form = NameForm()
-#
-#	if form.validate_on_submit():
-#		name = form.name.data
-#		form.name.data = '' 
-#	print(form.name.data)
-#	return render_template('index.html', form=form, name=name)
+	return render_template('index2.html', form=form)
 
 
 @app.route('/user/<name>')
