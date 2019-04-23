@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Workout Tracker</title>
-</head>
-<body>
-	<input type='submit' name='create_workout' value='Create Workout'>
-	<p></p>
-	<input type='submit' name='start_workout' value='Start Workout'>
-	<p></p>
-	<input type='submit' name='check_progress' value='Check Progress'>
-	<p></p>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/start_workout">
+	<input type="submit" value="Start Workout"/>
+</form>
+
+<form action="/create_workout">
+	<input type="submit" value="Create Workout"/>
+</form>
+
+<form action="/check_progress">
+	<input type="submit" value="Check Progress"/>
+</form>
+
+{% endblock content %}
