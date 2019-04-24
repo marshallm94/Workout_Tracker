@@ -6,7 +6,12 @@
 	<h1>{{ header }}</h1>
 	{% for split_name, split in splits.items() %}
 		<h2>{{ split_name }}</h2>
-		<h3>{{ split }}</h3>
+		{% for workout_name, workout in split.split.items() %}
+			<h2>{{ workout_name }}</h2>
+			{% for exercise in workout %}
+				<h3>{{ exercise }}</h3>
+			{% endfor %}
+		{% endfor %}
 	{% endfor %}
 </form>
 
