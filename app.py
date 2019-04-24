@@ -14,44 +14,22 @@ user_directory = os.path.join(os.getcwd(), "users/")
 with open(os.path.join(user_directory, 'marshall.pickle'), 'rb') as tmp:
 	marshall = pickle.load(tmp)
 
-class OptionForm(FlaskForm):
-
-	heading = 'Choose one of the options below:'
-	start_workout = SubmitField('Start Workout')
-	create_workout = SubmitField('Create Workout')
-	check_progress = SubmitField('Check Progress')
-	
 
 @app.route('/', methods=['GET','POST'])
 def index():
 
-	form = OptionForm()
-	
-	if request.method == 'POST':
-
-		if 'create_workout' in request.form:
-
-			print('creating workout')
-
-		elif 'start_workout' in request.form:
-
-			print('starting workout')
-
-		elif 'check_progress' in request.form:
-
-			print('checking progress')
-	
-	elif request.method == 'GET':
-
-		pass
-
-	return render_template('index.html', form=form)
+	return render_template('index.html')
 
 
 @app.route('/start_workout')
 def start_workout():
 
-	return render_template('start_workout.html')
+	header = 'Choose one of the workouts below:'
+	title = 'Start Workout'
+
+	splits = marshall.splits
+
+	return render_template('start_workout.html', header=header, title=title, splits=splits)
 
 
 @app.route('/create_workout')
