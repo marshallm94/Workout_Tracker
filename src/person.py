@@ -25,4 +25,18 @@ class Person(object):
 
 		return self.splits[key]
 
-			
+	def __iter__(self):
+
+		return iter(self.splits.values())
+
+	def keys(self):
+
+		return self.splits.keys()
+
+	def items(self):
+
+		return self.splits.items()
+
+	def values(self):
+
+		return self.splits.values()
