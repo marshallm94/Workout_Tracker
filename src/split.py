@@ -88,6 +88,35 @@ class Split(object):
 
 		return len(self.split)
 
-	def __getitem__(self, key):
+	def __getitem__(self, key, index=-1):
 
-		return self.split[key]
+		return self.split[key][index]
+
+	def __iter__(self, index=-1):
+
+		workouts = self.split.values()
+
+		prev_workouts = [workout_list[index] for workout_list in workouts]
+
+		return iter(prev_workouts)
+
+	def keys(self):
+
+		return self.split.keys()
+
+	def items(self, index=-1):
+
+		out = dict()
+		for k, v in self.split.items():
+
+			out[k] = v[index]
+
+		return out.items()
+
+	def values(self, index=-1):
+
+		workouts = self.split.values()
+
+		values = [workout[index] for workout in workouts]
+
+		return values
