@@ -7,10 +7,12 @@
 	{% for split_name, split in splits.items() %}
 		<h2>{{ split_name }}</h2>
 		{% for workout_name, workout in split.items() %}
-			<h3>{{ workout_name }}</h3>
-			{% for exercise in workout %}
-				<p>{{ exercise }}</p>
-			{% endfor %}
+			<button type="submit">
+			<h3>{{ workout_name }} | {{ workout._get_total_sets() }} Sets</h3>
+				{% for exercise in workout %}
+					<p>{{ exercise }}</p>
+				{% endfor %}
+			</button>
 		{% endfor %}
 	{% endfor %}
 </form>
