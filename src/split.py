@@ -82,4 +82,12 @@ class Split(object):
 			out += name + f" | {last_workout._get_total_sets()} sets\n=========="
 			out += "\t" + last_workout + "\n"
 
-		return out	
+		return out
+
+	def __len__(self):
+
+		return len(self.split)
+
+	def __getitem__(self, key):
+
+		return self.split[key]

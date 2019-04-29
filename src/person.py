@@ -21,4 +21,8 @@ class Person(object):
 
 		return out
 
+	def __getitem__(self, key):
+
+		return self.splits[key]
+
 			

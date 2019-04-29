@@ -32,6 +32,9 @@ class Workout(object):
 			elif usr_input == 'n':
 				break
 
+		self.number_exercises = len(self.routine)
+
+
 	def start_workout(self, values_to_display=None):
 
 		self.start_date = time.ctime()
@@ -97,3 +100,22 @@ class Workout(object):
 		if isinstance(other, str):
 
 			return other + self.__str__()
+
+	def __len__(self):
+
+		return len(self.routine)
+
+	def __iter__(self):
+
+		self.index = -1
+		return self
+
+	def __next__(self):
+
+		if self.index == self.number_exercises - 1:
+
+			raise StopIteration
+
+		self.index += 1
+
+		return self.routine[self.index]
