@@ -3,40 +3,40 @@ from .split import Split
 
 class Person(object):
 
-	def __init__(self, name):
+    def __init__(self, name):
 
-		self.name = name
-		self.splits = dict()
+        self.name = name
+        self.splits = dict()
 
-	def add_split(self, name):
+    def add_split(self, name):
 
-		self.splits[name] = Split(name)	
+        self.splits[name] = Split(name)	
 
-	def __str__(self):
+    def __str__(self):
 
-		out = f"{self.name}'s splits\n==========\n"
-		for split_name, split in self.splits.items():
+        out = f"{self.name}'s splits\n==========\n"
+        for split_name, split in self.splits.items():
 
-			out += split_name + "\n==========\n" + split.__str__()
+                out += split_name + "\n==========\n" + split.__str__()
 
-		return out
+        return out
 
-	def __getitem__(self, key):
+    def __getitem__(self, key):
 
-		return self.splits[key]
+        return self.splits[key]
 
-	def __iter__(self):
+    def __iter__(self):
 
-		return iter(self.splits.values())
+        return iter(self.splits.values())
 
-	def keys(self):
+    def keys(self):
 
-		return self.splits.keys()
+        return self.splits.keys()
 
-	def items(self):
+    def items(self):
 
-		return self.splits.items()
+        return self.splits.items()
 
-	def values(self):
+    def values(self):
 
-		return self.splits.values()
+        return self.splits.values()

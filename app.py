@@ -21,15 +21,15 @@ def index():
 	return render_template('index.html')
 
 
-@app.route('/start_workout')
-def start_workout():
+@app.route('/workout_home', methods=['GET','POST'])
+def workout_home():
 
 	header = 'Choose one of the workouts below:'
 	title = 'Start Workout'
 
 	splits = marshall.splits
 
-	return render_template('start_workout.html', header=header, title=title, splits=splits)
+	return render_template('workout_home.html', header=header, title=title, splits=splits)
 
 
 @app.route('/create_workout')
@@ -42,6 +42,13 @@ def create_workout():
 def check_progress():
 
 	return render_template('check_progress.html')
+
+
+@app.route('/start_workout', methods=['GET','POST'])
+def start_workout():
+
+
+	return render_template('start_workout.html')
 
 
 if __name__ == "__main__":
