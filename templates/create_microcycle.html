@@ -13,6 +13,8 @@
 	</p>
 
 	{% for workout_table in split %}
+		{{ workout_table.exercise.label }}
+		<br>
 		{{ workout_table.exercise }}
 		<br>
 		<input type="submit" value="add exercise"/>

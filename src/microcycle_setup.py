@@ -8,23 +8,12 @@ from flask_table import Table, Col
 
 class WorkoutTable(Form):
 
-    def __init__(self):
-
-        exercise = Col('Exercise')
-
-    def add_exercise(self, name):
-
-        self.items.append(Exercise(name))
+    exercise = StringField('Exercise')
 
 
 class Exercise(object):
 
-    def __init__(self, name):
+    def __init__(self):
 
-        self.name = name
-
-
-#class WorkoutTable(Table):
-#
-#    exercise = Col('Exercise')
+        self.name
 
