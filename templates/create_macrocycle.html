@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+	<h1>Create a macrocycle (aka "program")</h1>
+
+	<p>
+	Different exercises within a microcycle (aka "split") might follow<br>
+	different periodization models over the course of a macrocycle (or <br>
+	mesocycle). The approach this application takes is to create the <br>
+	microcycle/split first, and then go through that microcycle and <br>
+	apply a periodization strategy to each movement.
+	<br>
+	<br>
+	<br>
+	Note that this application does <b>NOT</b> keep track of off days <br>
+	(i.e. if your microcycle lasts one calendar week but you only <br>
+	train 4 days out of that week, the split you create should be a 4 <br>
+	day microcycle). With that in mind, how many workouts will there <br>
+	be in your microcycle?
+	</p>
+
+	<form action="/create_macrocycle">
+		<input type="text" name="split_length"/>
+	</form>
+
+</form>
+
+{% endblock content %}

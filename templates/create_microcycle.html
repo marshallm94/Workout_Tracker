@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/create_microcycle" method="POST" action="">
+	<h1>Create a microcycle (aka "split")</h1>
+
+	<p>
+	Each box below represent a day in your microcycle. Fill out each <br>
+	day with the exercises you would like to perform on that day. <br>
+	<b>Note that you are not specifying reps or sets at this point. <br>
+	</b> That is the next step.
+	</p>
+
+	{% for workout_table in split %}
+		{{ workout_table.exercise }}
+		<br>
+		<input type="submit" value="add exercise"/>
+		<br>
+		<br>
+		<br>
+	{% endfor %}
+
+</form>
+
+{% endblock content %}
