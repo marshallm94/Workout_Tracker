@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm, Form
+from flask_wtf import FlaskForm
 
 from wtforms import StringField, FloatField, SubmitField
 from wtforms.validators import DataRequired
@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired
 from flask_table import Table, Col
 
 
-class WorkoutTable(Form):
+class WorkoutTable(FlaskForm):
 
     exercise = StringField('Exercise')
 

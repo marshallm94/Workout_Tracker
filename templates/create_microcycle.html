@@ -13,6 +13,8 @@
 	</p>
 
 	{% for workout_table in split %}
+		Day {{loop.index0 + 1}} / {{split|length}}
+		<br>
 		{{ workout_table.exercise.label }}
 		<br>
 		{{ workout_table.exercise }}

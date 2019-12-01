@@ -48,6 +48,14 @@ def create_macrocycle():
 @app.route('/create_microcycle', methods=['GET','POST'])
 def create_microcycle():
 
+    print(workout_table)
+
+    if request.method == 'GET':
+        pass
+
+    elif request.method == 'POST':
+
+        request.form['']
     return render_template('create_microcycle.html')
 
 @app.route('/start_one_off_workout', methods=['GET','POST'])
