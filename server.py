@@ -1,5 +1,5 @@
 import os
-from src import *
+from src import WorkoutTable
 import pickle
 
 from flask import Flask, render_template, url_for, request, redirect
@@ -48,15 +48,29 @@ def create_macrocycle():
 @app.route('/create_microcycle', methods=['GET','POST'])
 def create_microcycle():
 
-    print(workout_table)
+    if request.method == 'GET':
+        print("get")
+        pass
+
+    elif request.method == 'POST':
+        print('bingbong')
+        print(request.form)
+        #if request.form['add_exercise']:
+        pass
+
+    return render_template('create_microcycle.html')
+
+@app.route('/create_periodization_models', methods=['GET','POST'])
+def create_periodization_models():
 
     if request.method == 'GET':
         pass
 
     elif request.method == 'POST':
+        #if request.form['add_exercise']:
+        pass
 
-        request.form['']
-    return render_template('create_microcycle.html')
+    return render_template('create_periodization_models.html')
 
 @app.route('/start_one_off_workout', methods=['GET','POST'])
 def workout_home():

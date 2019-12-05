@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, FloatField, SubmitField
+from wtforms import FieldList, StringField
 from wtforms.validators import DataRequired
 
 from flask_table import Table, Col
@@ -8,12 +8,9 @@ from flask_table import Table, Col
 
 class WorkoutTable(FlaskForm):
 
-    exercise = StringField('Exercise')
+    label = 'Exercise'
+    exercises = FieldList(StringField('Exercise'), min_entries = 1)
 
+    def add_exercise(self):
 
-class Exercise(object):
-
-    def __init__(self):
-
-        self.name
-
+        exercises.append(StringField('Exercise'))
