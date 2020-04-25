@@ -23,17 +23,17 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/continue_macrocycle')
-def continue_macrocycle():
+@app.route('/continue_mesocycle')
+def continue_mesocycle():
 
-    return render_template('continue_macrocycle.html')
+    return render_template('continue_mesocycle.html')
 
-@app.route('/create_macrocycle', methods=['GET','POST'])
-def create_macrocycle():
+@app.route('/create_mesocycle', methods=['GET','POST'])
+def create_mesocycle():
 
     if request.method == 'GET':
 
-        return render_template('create_macrocycle.html')
+        return render_template('create_mesocycle.html')
 
     elif request.method == 'POST':
 
@@ -53,9 +53,10 @@ def create_microcycle():
         pass
 
     elif request.method == 'POST':
-        print('bingbong')
         print(request.form)
         #if request.form['add_exercise']:
+        #    print('bing')
+        #    print(request.form)
         pass
 
     return render_template('create_microcycle.html')

@@ -13,24 +13,28 @@
 	</b> That is the next step.
 	</p>
 
-	{% for workout_table in split %}
-		Day {{loop.index0 + 1}} / {{split|length}}
-		<br>
-		{{ workout_table.label }}
-		<br>
-		{% for exercise in workout_table.exercises %}
-			{{ exercise }}
-			<br>
-		{% endfor %}
-		<form action="/create_microcycle" method="POST" action="">
-			<input type="submit" value="add_exercise"/>
-		</form>
-		<br>
-		<br>
-		<br>
-	{% endfor %}
-
 <input type="submit" value="next_step"/>
 </form>
+<br>
+<br>
+<br>
+
+{% for workout_table in split %}
+	Day {{loop.index0 + 1}} / {{split|length}}
+	<br>
+	{{ workout_table.label }}
+	<br>
+	{% for exercise in workout_table.exercises %}
+		{{ exercise }}
+		<br>
+	{% endfor %}
+	<form action="/create_microcycle" method="POST" action="">
+		<input type="submit" value="add_exercise"/>
+	</form>
+	<br>
+	<br>
+	<br>
+{% endfor %}
+
 
 {% endblock content %}
