@@ -1,0 +1,29 @@
+{
+	"1":{
+		"Chin Up":{
+			"sets":[4,3,2],
+			"reps":[5,6,7],
+			"rpe":[7,8,9]
+		},
+		"Bench Press - Top Set":{
+			"sets":[1,1,1],
+			"reps":[3,5,3],
+			"rpe":[7,8,9.5]
+		},
+		"Bench Press - Back Down Sets":{
+			"sets":[4,4,4],
+			"reps":[7,6,5],
+			"rpe":[7,8,9.5]
+		},
+		"Inverted Row":{
+			"sets":[3,3,3],
+			"reps":["12-16","12-16","12-16"],
+			"rpe":[8,8,8]
+		},
+		"Seated DB Shoulder Press":{
+			"sets":[4,4,4],
+			"reps":[12,10,8],
+			"rpe":[7,8,9]
+		}
+	}
+}
