@@ -1,0 +1,30 @@
+{
+	"1": {
+		"Chin Up": {},
+		"Bench Press - Top Set": {},
+		"Bench Press - Back Down Sets": {},
+		"Inverted Row": {},
+		"Seated DB Shoulder Press": {}
+  },
+	"2": {
+		"Chin Up": {},
+		"Back Squat - Top Set": {},
+		"Back Squat - Back Down Sets": {},
+		"Hamstring Curl": {},
+		"DB Lateral Raise": {}
+	},
+	"3": {
+		"Chin Up": {},
+		"Deadlift - Top Set": {},
+		"Deadlift - Back Down Sets": {},
+		"Bench Press": {},
+		"DB Lateral Raise": {}
+	},
+	"4": {
+		"Front Squat - Top Set": {},
+		"Front Squat - Back Down Sets": {},
+		"Inverted Row": {},
+		"OHP - Top Set": {},
+		"OHP - Back Down Sets": {}
+	}
+}
