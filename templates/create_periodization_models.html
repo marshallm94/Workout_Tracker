@@ -2,18 +2,28 @@
 
 {% block content %}
 
-<form method="POST" action="">
+<form method="POST" action="/review_mesocycle">
 
 <h1>Create Periodization Model</h1>
 
 	<p>
-	Periodization model page
-
-
+	Input periodization models. A single periodization model can be <br>
+	applied to more than one exercise in a mesocycle.
 	</p>
-
-
+<input type="submit" name="next_step" value='Next Step'/>
+<br>
+<br>
+<br>
 </form>
 
+{% for name, scheme in models.items() %}
+	Name: {{ name }}
+	<br>
+	{% for id, progression in scheme.items() %}
+		{{id}} | {{ progression }}
+		<br>
+	{% endfor %}
+	<br>
+{% endfor %}
 
 {% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/">
+<h1>Review Mesocycle</h1>
+
+<p>
+Review your planned mesocycle. If everything looks good, click 'Next Step'<br>
+and you will be brought back to the homepage to start the meso.
+</p>
+
+<input type="submit" name="next_step" value='Next Step'/>
+</form>
+
+<br>
+<br>
+<br>
+
+{% for day, workout in mesocycle.items() %}
+	Day {{ day }}
+	<br>
+	{% for exercise, scheme in workout.items() %}
+		{{ exercise }}
+		<br>
+		{% for id, progression in scheme.items() %}
+			{{ id }} | {{ progression }}
+		<br>
+		{% endfor %}
+	{% endfor %}
+	<br>
+	<br>
+	<br>
+{% endfor %}
+
+{% endblock content %}

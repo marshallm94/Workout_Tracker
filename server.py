@@ -1,8 +1,9 @@
 import os
 from src import WorkoutTable
-import pickle
+import json
 
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, request, session
+from flask import render_template, url_for, redirect
 from flask_table import Table, Col
 
 from wtforms import StringField, FloatField, SubmitField
@@ -13,15 +14,26 @@ app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 
 src_directory = os.path.join(os.getcwd(), "src/")
 user_directory = os.path.join(os.getcwd(), "users/")
+data_directory = os.path.join(os.getcwd(), "data/")
 
-with open(os.path.join(user_directory, 'marshall.pickle'), 'rb') as tmp:
-    marshall = pickle.load(tmp)
-
+with open(os.path.join(data_directory, 'planned_mesocycle.json')) as f:
+    planned_meso = json.load(f)
+with open(os.path.join(data_directory, 'stage1.json')) as f:
+    stage_1 = json.load(f)
+with open(os.path.join(data_directory, 'stage2.json')) as f:
+    stage_2 = json.load(f)
+with open(os.path.join(data_directory, 'stage3.json')) as f:
+    stage_3 = json.load(f)
 
 @app.route('/', methods=['GET','POST'])
 def index():
 
     return render_template('index.html')
+
+@app.route('/review_mesocycle', methods=['GET','POST'])
+def review_mesocycle():
+
+    return render_template('review_mesocycle.html', mesocycle=planned_meso)
 
 @app.route('/continue_mesocycle')
 def continue_mesocycle():
@@ -37,13 +49,13 @@ def create_mesocycle():
 
     elif request.method == 'POST':
 
-        split_length = int(request.form['split_length'])
-        # TODO: create workout template here and then pass
-        # entire object to render_template()
+        # split_length = int(request.form['split_length'])
+        # # TODO: create workout template here and then pass
+        # # entire object to render_template()
 
-        split = [WorkoutTable() for _ in range(split_length)]
+        # split = [WorkoutTable() for _ in range(split_length)]
 
-        return render_template('create_microcycle.html', split=split)
+        return render_template('create_microcycle.html', split=stage_2)
 
 @app.route('/create_microcycle', methods=['GET','POST'])
 def create_microcycle():
@@ -53,10 +65,7 @@ def create_microcycle():
         pass
 
     elif request.method == 'POST':
-        print(request.form)
-        #if request.form['add_exercise']:
-        #    print('bing')
-        #    print(request.form)
+
         pass
 
     return render_template('create_microcycle.html')
@@ -68,21 +77,10 @@ def create_periodization_models():
         pass
 
     elif request.method == 'POST':
-        #if request.form['add_exercise']:
+        # TODO: add periodation models to session object?
         pass
 
-    return render_template('create_periodization_models.html')
-
-@app.route('/start_one_off_workout', methods=['GET','POST'])
-def workout_home():
-
-    header = 'Choose one of the workouts below:'
-    title = 'Start Workout'
-
-    splits = marshall.splits
-
-    return render_template('workout_home.html', header=header, title=title, splits=splits)
-
+    return render_template('create_periodization_models.html', models=stage_3)
 
 @app.route('/create_one_off_workout')
 def create_workout():
@@ -104,6 +102,5 @@ def start_workout():
 
 
 if __name__ == "__main__":
-
     app.run(debug=True)
 

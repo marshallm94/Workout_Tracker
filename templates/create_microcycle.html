@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="/create_periodization_models" method="POST" action="">
+<form action="/create_periodization_models" method="POST">
 
 	<h1>Create a microcycle (aka "split")</h1>
 
@@ -13,28 +13,22 @@
 	</b> That is the next step.
 	</p>
 
-<input type="submit" value="next_step"/>
+<input type="submit" name="next_step" value='Next Step'/>
 </form>
 <br>
 <br>
 <br>
 
-{% for workout_table in split %}
-	Day {{loop.index0 + 1}} / {{split|length}}
+{% for day, workout in split.items() %}
+	Day {{ day }}
 	<br>
-	{{ workout_table.label }}
-	<br>
-	{% for exercise in workout_table.exercises %}
+	{% for exercise, scheme in workout.items() %}
 		{{ exercise }}
 		<br>
 	{% endfor %}
-	<form action="/create_microcycle" method="POST" action="">
-		<input type="submit" value="add_exercise"/>
-	</form>
 	<br>
 	<br>
 	<br>
 {% endfor %}
-
 
 {% endblock content %}
