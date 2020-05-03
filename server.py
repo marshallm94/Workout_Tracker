@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 src_directory = os.path.join(os.getcwd(), "src/")
 user_directory = os.path.join(os.getcwd(), "users/")
 data_directory = os.path.join(os.getcwd(), "data/")
+examples_directory = os.path.join(os.getcwd(), "examples/")
 
 with open(os.path.join(data_directory, 'planned_mesocycle.json')) as f:
     planned_meso = json.load(f)
@@ -24,6 +25,9 @@ with open(os.path.join(data_directory, 'stage2.json')) as f:
     stage_2 = json.load(f)
 with open(os.path.join(data_directory, 'stage3.json')) as f:
     stage_3 = json.load(f)
+
+with open(os.path.join(examples_directory, 'progression_model.json')) as f:
+    progression_example = json.load(f)
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -80,7 +84,9 @@ def create_periodization_models():
         # TODO: add periodation models to session object?
         pass
 
-    return render_template('create_periodization_models.html', models=stage_3)
+    return render_template('create_periodization_models.html',
+            models = stage_3,
+            example = progression_example)
 
 @app.route('/create_one_off_workout')
 def create_workout():

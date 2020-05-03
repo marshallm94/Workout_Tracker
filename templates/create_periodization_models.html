@@ -1,21 +1,83 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
 {% extends "layout.html" %}
 
 {% block content %}
+
+
+
 
 <form method="POST" action="/review_mesocycle">
 
 <h1>Create Periodization Model</h1>
 
 	<p>
-	Input periodization models. A single periodization model can be <br>
-	applied to more than one exercise in a mesocycle.
+	Create periodization models. A single periodization model can be <br>
+	applied to more than one exercise in a mesocycle. Note that the <br>
+	length of your input will determine the number of microcycles in <br>
+	this mesocycle. For example, if you were to input: <br>
+	<br>
+	<table style='width:25%'>
+		<tr>
+			<th>Sets</th>
+			<th>Reps</th>
+			<th>RPE</th>
+		</tr>
+		<tr>
+			<th>3</th>
+			<th>12</th>
+			<th>7</th>
+		</tr>
+		<tr>
+			<th>3</th>
+			<th>10</th>
+			<th>8</th>
+		</tr>
+		<tr>
+			<th>3</th>
+			<th>8</th>
+			<th>9</th>
+		</tr>
+		<tr>
+			<th>3</th>
+			<th>6</th>
+			<th>10</th>
+		</tr>
+	</table>
+	<br>
+	Your mesocycle would be 4 microcycles long, and would be: <br>
+	<br>
+	<table style='width:25%'>
+		<tr>
+			<th>Microcycle 1</th>
+			<th>3 x 12 @ 7</th>
+		</tr>
+		<tr>
+			<th>Microcycle 2</th>
+			<th>3 x 10 @ 8</th>
+		</tr>
+		<tr>
+			<th>Microcycle 3</th>
+			<th>3 x 8 @ 9</th>
+		</tr>
+		<tr>
+			<th>Microcycle 3</th>
+			<th>3 x 6 @ 10</th>
+		</tr>
+	</table>
+	<br>
+
 	</p>
 <input type="submit" name="next_step" value='Next Step'/>
 <br>
 <br>
 <br>
 </form>
-
 {% for name, scheme in models.items() %}
 	Name: {{ name }}
 	<br>
