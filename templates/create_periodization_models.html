@@ -9,83 +9,66 @@ table, th, td {
 
 {% block content %}
 
-
-
-
 <form method="POST" action="/review_mesocycle">
 
 <h1>Create Periodization Model</h1>
 
 	<p>
-	Create periodization models. A single periodization model can be <br>
+	A single periodization model can be <br>
 	applied to more than one exercise in a mesocycle. Note that the <br>
 	length of your input will determine the number of microcycles in <br>
 	this mesocycle. For example, if you were to input: <br>
 	<br>
 	<table style='width:25%'>
 		<tr>
-			<th>Sets</th>
-			<th>Reps</th>
-			<th>RPE</th>
+			{% for k in example['User Input'].keys() %}
+				<th>{{ k }}</th>
+			{% endfor %}
 		</tr>
-		<tr>
-			<th>3</th>
-			<th>12</th>
-			<th>7</th>
-		</tr>
-		<tr>
-			<th>3</th>
-			<th>10</th>
-			<th>8</th>
-		</tr>
-		<tr>
-			<th>3</th>
-			<th>8</th>
-			<th>9</th>
-		</tr>
-		<tr>
-			<th>3</th>
-			<th>6</th>
-			<th>10</th>
-		</tr>
+		<!-- iteration length is length of mesocycle -->
+		{% for i in range( example['User Input']['Sets']|length ) %}
+				<tr>
+				<td>{{ example['User Input']['Sets'][i] }}</td>
+				<td>{{ example['User Input']['Reps'][i] }}</td>
+				<td>{{ example['User Input']['RPE'][i] }}</td>
+				</tr>
+		{% endfor %}
 	</table>
 	<br>
 	Your mesocycle would be 4 microcycles long, and would be: <br>
 	<br>
 	<table style='width:25%'>
+		{% for k, v in example['Output'].items() %}
 		<tr>
-			<th>Microcycle 1</th>
-			<th>3 x 12 @ 7</th>
+			<th>{{ k }}</th>
+			<td>{{ v }}</td>
 		</tr>
-		<tr>
-			<th>Microcycle 2</th>
-			<th>3 x 10 @ 8</th>
-		</tr>
-		<tr>
-			<th>Microcycle 3</th>
-			<th>3 x 8 @ 9</th>
-		</tr>
-		<tr>
-			<th>Microcycle 3</th>
-			<th>3 x 6 @ 10</th>
-		</tr>
+		{% endfor %}
 	</table>
-	<br>
-
 	</p>
-<input type="submit" name="next_step" value='Next Step'/>
 <br>
-<br>
-<br>
-</form>
-{% for name, scheme in models.items() %}
+{% for name, prog_scheme in models.items() %}
 	Name: {{ name }}
 	<br>
-	{% for id, progression in scheme.items() %}
-		{{id}} | {{ progression }}
-		<br>
-	{% endfor %}
+	<table style='width:25%'>
+		<tr>
+			{% for k in prog_scheme.keys() %}
+				<th>{{ k }}</th>
+			{% endfor %}
+		</tr>
+		<!-- iteration length is length of mesocycle -->
+		{% for i in range( prog_scheme['Sets']|length ) %}
+				<tr>
+				<td>{{ prog_scheme['Sets'][i] }}</td>
+				<td>{{ prog_scheme['Reps'][i] }}</td>
+				<td>{{ prog_scheme['RPE'][i] }}</td>
+				</tr>
+		{% endfor %}
+	</table>
 	<br>
 {% endfor %}
+
+<input type="submit" name="next_step" value='Next Step'/>
+</form>
 
 {% endblock content %}
