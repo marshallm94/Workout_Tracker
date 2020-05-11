@@ -1,3 +1,10 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
 {% extends "layout.html" %}
 
 {% block content %}
@@ -17,19 +24,25 @@ and you will be brought back to the homepage to start the meso.
 <br>
 <br>
 
-{% for day, workout in mesocycle.items() %}
-	Day {{ day }}
-	<br>
-	{% for exercise, scheme in workout.items() %}
-		{{ exercise }}
-		<br>
-		{% for id, progression in scheme.items() %}
-			{{ id }} | {{ progression }}
-		<br>
+{% for i in range(split|length)%}
+	<table style='width:50%'>
+		<tr>
+			<th>Day {{ i+1 }}</th>
+			{% for i in range(meso_length) %}
+				<th>Microcycle {{i+1}}</th>
+			{% endfor %}
+		</tr>
+		{% for exercise_dict in split[i] %}
+			<tr>
+				{% for exercise, progression in exercise_dict.items() %}
+					<td>{{ exercise }}</td>
+					{% for i in range(progression|length) %}
+						<td>{{ progression[i] }}</td>
+					{% endfor %}
+				{% endfor %}
+			</tr>
 		{% endfor %}
-	{% endfor %}
-	<br>
-	<br>
+	</table>
 	<br>
 {% endfor %}
 

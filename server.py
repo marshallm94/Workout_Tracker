@@ -17,8 +17,8 @@ user_directory = os.path.join(os.getcwd(), "users/")
 data_directory = os.path.join(os.getcwd(), "data/")
 examples_directory = os.path.join(os.getcwd(), "examples/")
 
-with open(os.path.join(data_directory, 'planned_mesocycle.json')) as f:
-    planned_meso = json.load(f)
+with open(os.path.join(data_directory, 'display_mesocycle.json')) as f:
+    display_meso = json.load(f)
 with open(os.path.join(data_directory, 'stage1.json')) as f:
     stage_1 = json.load(f)
 with open(os.path.join(data_directory, 'stage2.json')) as f:
@@ -37,7 +37,10 @@ def index():
 @app.route('/review_mesocycle', methods=['GET','POST'])
 def review_mesocycle():
 
-    return render_template('review_mesocycle.html', mesocycle=planned_meso)
+    meso_length = 3
+    return render_template('review_mesocycle.html',
+            split = display_meso,
+            meso_length = meso_length)
 
 @app.route('/continue_mesocycle')
 def continue_mesocycle():

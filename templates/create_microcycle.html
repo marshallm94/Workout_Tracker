@@ -1,3 +1,10 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
 {% extends "layout.html" %}
 
 {% block content %}
@@ -19,15 +26,17 @@
 <br>
 <br>
 
-{% for day, workout in split.items() %}
-	Day {{ day }}
-	<br>
-	{% for exercise, scheme in workout.items() %}
-		{{ exercise }}
-		<br>
-	{% endfor %}
-	<br>
-	<br>
+{% for i in range(split|length)%}
+	<table style='width:25%'>
+		<tr>
+			<th>Day {{ i+1 }}</th>
+		</tr>
+		{% for exercise in split[i] %}
+			<tr>
+				<td>{{ exercise }}</td>
+			</tr>
+		{% endfor %}
+	</table>
 	<br>
 {% endfor %}
 
