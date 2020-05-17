@@ -1,16 +1,9 @@
-from flask_wtf import FlaskForm
-from wtforms import FieldList, StringField, TextField, IntegerField, FloatField, FormField
-from wtforms.validators import DataRequired, Length
-from flask_table import Table, Col
+from app import app
 
-class ExerciseTable(Table):
-    # NOTE: the order that the attributes are listed here (top to bottome) is
-    # the order the will be displayed in the table (left to right).
-    target_reps = Col("Target Reps")
-    target_rpe = Col("Target RPE")
-    weight = Col("Weight")
-    reps = Col('Reps')
-    rpe = Col('RPE')
+from flask_wtf import FlaskForm
+from wtforms import IntegerField, FloatField, FormField
+from wtforms.validators import DataRequired
+from flask_table import Table, Col
 
 class WeightForm(FlaskForm):
 
@@ -34,6 +27,14 @@ class Set(object):
         self.reps = RepForm()
         self.rpe = RPEForm()
 
+class ExerciseTable(Table):
+    # NOTE: the order that the attributes are listed here (top to bottome) is
+    # the order the will be displayed in the table (left to right).
+    target_reps = Col("Target Reps")
+    target_rpe = Col("Target RPE")
+    weight = Col("Weight")
+    reps = Col('Reps')
+    rpe = Col('RPE')
 
 sets = [Set(target_reps = 6, target_rpe = 7),
         Set(target_reps = 6, target_rpe = 7),

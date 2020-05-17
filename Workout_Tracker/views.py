@@ -1,17 +1,13 @@
+from Workout_Tracker import app
+
+from flask import request, render_template, url_for, redirect
+
 import os
-#from src.create_meso_framework import *
 import json
 
-from flask import Flask, request, session
-from flask import render_template, url_for, redirect
-
-src_directory = os.path.join(os.getcwd(), "src/")
-user_directory = os.path.join(os.getcwd(), "users/")
-data_directory = os.path.join(os.getcwd(), "data/")
-examples_directory = os.path.join(os.getcwd(), "examples/")
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
+src_directory = os.path.join("Workout_Tracker", "src/")
+data_directory = os.path.join("Workout_Tracker", "data/")
+examples_directory = os.path.join("Workout_Tracker", "examples/")
 
 with open(os.path.join(data_directory, 'display_mesocycle.json')) as f:
     display_meso = json.load(f)
@@ -105,8 +101,3 @@ def start_workout():
 
 
     return render_template('start_workout.html')
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-

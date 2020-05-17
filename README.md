@@ -1,5 +1,16 @@
 # Workout\_Tracker
 
+# To test:
+
+```
+# from top-most Workout_Tracker directory
+$ export FLASK_APP=Workout_Tracker
+$ export FLASK_ENV=development
+$ pip3 install -e .
+$ flask run
+
+```
+
 # TODO
 
 * Understand how `redirect(url_for(<whatever>))` is different from
