@@ -5,7 +5,6 @@ from flask import request, render_template, url_for, redirect
 import os
 import json
 
-src_directory = os.path.join("Workout_Tracker", "src/")
 data_directory = os.path.join("Workout_Tracker", "data/")
 examples_directory = os.path.join("Workout_Tracker", "examples/")
 
