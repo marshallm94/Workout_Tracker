@@ -1,0 +1,130 @@
+[
+	[
+		{ "Chin Up": {
+				"Sets": [4,3,2],
+				"Reps": [6,7,8],
+				"RPE": [7,8,9]
+			}
+		},
+		{ "Bench Press - Top Set": {
+				"Sets": [1,1,1],
+				"Reps": [3,5,3],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Bench Press - Back Down Sets": {
+				"Sets": [4,4,4],
+				"Reps": [7,6,5],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Inverted Row": {
+				"Sets": [3,3,3],
+				"Reps": ["12-16","12-16","12-16"],
+				"RPE": [8,8,8]
+			}
+		},
+		{ "Seated DB Shoulder Press": {
+				"Sets": [4,4,4],
+				"Reps": [12,10,8],
+				"RPE": [7,8,9]
+			}
+		}
+	],
+	[
+		{ "Chin Up": {
+				"Sets": [4,3,2],
+				"Reps": [6,7,8],
+				"RPE": [7,8,9]
+			}
+		},
+		{ "Back Squat - Top Set": {
+				"Sets": [1,1,1],
+				"Reps": [3,5,3],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Back Squat - Back Down Sets": {
+				"Sets": [4,4,4],
+				"Reps": [7,6,5],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Hamstring Curl": {
+				"Sets": [3,3,3],
+				"Reps": ["12-16","12-16","12-16"],
+				"RPE": [8,8,8]
+			}
+		},
+		{ "DB Lateral Raise": {
+				"Sets": [3,3,3],
+				"Reps": ["12-16","12-16","12-16"],
+				"RPE": [8,8,8]
+			}
+		}
+	],
+	[
+		{ "Chin Up": {
+				"Sets": [4,3,2],
+				"Reps": [6,7,8],
+				"RPE": [7,8,9]
+			}
+		},
+		{ "Deadlift - Top Set": {
+				"Sets": [1,1,1],
+				"Reps": [3,5,3],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Deadlift - Back Down Sets": {
+				"Sets": [4,4,4],
+				"Reps": [7,6,5],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Bench Press": {
+				"Sets": [4,4,4],
+				"Reps": [12,10,8],
+				"RPE": [7,8,9]
+			}
+		},
+		{ "DB Lateral Raise": {
+				"Sets": [3,3,3],
+				"Reps": ["12-16","12-16","12-16"],
+				"RPE": [8,8,8]
+			}
+		}
+	],
+	[
+		{ "Front Squat - Top Set": {
+				"Sets": [1,1,1],
+				"Reps": [3,5,3],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Front Squat - Back Down Sets": {
+				"Sets": [4,4,4],
+				"Reps": [7,6,5],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "Inverted Row": {
+				"Sets": [3,3,3],
+				"Reps": ["12-16","12-16","12-16"],
+				"RPE": [8,8,8]
+			}
+		},
+		{ "OHP - Top Set": {
+				"Sets": [1,1,1],
+				"Reps": [3,5,3],
+				"RPE": [7,8,9.5]
+			}
+		},
+		{ "OHP - Back Down Sets": {
+				"Sets": [4,4,4],
+				"Reps": [7,6,5],
+				"RPE": [7,8,9.5]
+			}
+		}
+	]
+]

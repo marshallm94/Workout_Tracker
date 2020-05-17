@@ -1,21 +1,17 @@
 import os
-from src import WorkoutTable
+#from src.create_meso_framework import *
 import json
 
 from flask import Flask, request, session
 from flask import render_template, url_for, redirect
-from flask_table import Table, Col
-
-from wtforms import StringField, FloatField, SubmitField
-from wtforms.validators import DataRequired
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 
 src_directory = os.path.join(os.getcwd(), "src/")
 user_directory = os.path.join(os.getcwd(), "users/")
 data_directory = os.path.join(os.getcwd(), "data/")
 examples_directory = os.path.join(os.getcwd(), "examples/")
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'JesusChristItsJasonBourne'
 
 with open(os.path.join(data_directory, 'display_mesocycle.json')) as f:
     display_meso = json.load(f)
@@ -32,6 +28,7 @@ with open(os.path.join(examples_directory, 'progression_model.json')) as f:
 @app.route('/', methods=['GET','POST'])
 def index():
 
+    #return render_template('index.html',tmp=exercise_table)
     return render_template('index.html')
 
 @app.route('/review_mesocycle', methods=['GET','POST'])
