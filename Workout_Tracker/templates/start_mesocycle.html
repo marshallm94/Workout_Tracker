@@ -1,22 +1,19 @@
+<style>
+p {
+	border: 3px solid gray;
+}
+</style>
 {% extends "layout.html" %}
 
 {% block content %}
 
-<form action="/">
-<h1>Review Mesocycle</h1>
+<h1>Choose a Mesocycle to Start</h1>
 
-<p>
-Review your planned mesocycle. If everything looks good, click 'Next Step'<br>
-and you will be brought back to the homepage to start the meso.
-</p>
-
-<input type="submit" name="next_step" value='Next Step'/>
+<form action='/start_workout'>
+	<input type='button' name='this_one' value='Start'/>
 </form>
 
-<br>
-<br>
-<br>
-
+<p>
 {% for i in range(split|length)%}
 	<table style='width:100%'>
 		<tr>
@@ -38,5 +35,8 @@ and you will be brought back to the homepage to start the meso.
 	</table>
 	<br>
 {% endfor %}
+</p>
 
 {% endblock content %}
+
+

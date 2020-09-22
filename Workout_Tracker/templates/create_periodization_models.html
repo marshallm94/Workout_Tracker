@@ -4,7 +4,7 @@
 
 <form method="POST" action="/review_mesocycle">
 
-<h1>Create Periodization Model</h1>
+<h1>Create Periodization Models</h1>
 
 	<p>
 	A single periodization model can be <br>
@@ -24,6 +24,7 @@
 				<td>{{ example['User Input']['Sets'][i] }}</td>
 				<td>{{ example['User Input']['Reps'][i] }}</td>
 				<td>{{ example['User Input']['RPE'][i] }}</td>
+				<td>{{ example['User Input']['% Range'][i] }}</td>
 				</tr>
 		{% endfor %}
 	</table>
@@ -35,6 +36,39 @@
 		<tr>
 			<th>{{ k }}</th>
 			<td>{{ v }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<br>
+	You can add inputs for all the fields (sets, reps, RPE & %'s), as shown <br>
+	above. You must specify a minimum of two fields, with sets being one of <br>
+	those fields. The work to be done will always be displayed in the below <br>
+	manner:
+	<br>
+	<br>
+	Sets <u><b>x</b></u> Reps <u><b>@</b></u> RPE <u><b>in</b></u> [% Range]
+	<br>
+	<br>
+	Regardless of which fields are left blank (if any). The below table shows <br>
+	some possible combinations, how they will be displayed, and how they should <br>
+	be interpretted:
+	<br>
+	<br>
+	<table style='width:75%'>
+		<tr>
+			{% for i in example['Valid Periodization Fields']['Column Headers'] %}
+				<th>{{ i }}</th>
+			{% endfor %}
+		</tr>
+		{% for k, v in example['Valid Periodization Fields']['Examples'].items() %}
+		<tr>
+			<th>{{ k }}</th>
+			<td>{{ v[0] }}</td>
+			<td>{{ v[1] }}</td>
+			<td>{{ v[2] }}</td>
+			<td>{{ v[3] }}</td>
+			<td>{{ v[4] }}</td>
+			<td>{{ v[5] }}</td>
 		</tr>
 		{% endfor %}
 	</table>
@@ -55,6 +89,7 @@
 				<td>{{ prog_scheme['Sets'][i] }}</td>
 				<td>{{ prog_scheme['Reps'][i] }}</td>
 				<td>{{ prog_scheme['RPE'][i] }}</td>
+				<td>{{ prog_scheme['% Range'][i] }}</td>
 				</tr>
 		{% endfor %}
 	</table>
