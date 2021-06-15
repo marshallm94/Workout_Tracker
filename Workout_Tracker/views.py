@@ -32,51 +32,38 @@ def index():
 ########################################
 @app.route('/create_mesocycle', methods=['GET','POST'])
 def create_mesocycle():
-
     if request.method == 'GET':
-
         return render_template('create_mesocycle.html')
-
     elif request.method == 'POST':
-
         # split_length = int(request.form['split_length'])
         # # TODO: create workout template here and then pass
         # # entire object to render_template()
 
         # split = [WorkoutTable() for _ in range(split_length)]
-
         return render_template('create_microcycle.html', split=stage_2)
 
 @app.route('/create_microcycle', methods=['GET','POST'])
 def create_microcycle():
-
     if request.method == 'GET':
         print("get")
         pass
-
     elif request.method == 'POST':
-
         pass
-
     return render_template('create_microcycle.html')
 
 @app.route('/create_periodization_models', methods=['GET','POST'])
 def create_periodization_models():
-
     if request.method == 'GET':
         pass
-
     elif request.method == 'POST':
         # TODO: add periodation models to session object?
         pass
-
     return render_template('create_periodization_models.html',
             models = stage_3,
             example = progression_example)
 
 @app.route('/review_mesocycle', methods=['GET','POST'])
 def review_mesocycle():
-
     meso_length = 3
     return render_template('review_mesocycle.html',
             split = display_meso,
@@ -87,19 +74,18 @@ def review_mesocycle():
 ########################################
 @app.route('/start_mesocycle', methods=['GET','POST'])
 def start_mesocycle():
-
     if request.method == 'GET':
+        print('start_mesocycle GET')
         meso_length = 3
-        print(display_meso)
         return render_template('start_mesocycle.html',
                 split = display_meso,
                 meso_length = meso_length)
-
     # NOTE: Will this method ever actually need POST functionality? Wouldn't
     # the user simply be choosing from previously defined mesocycles?
     #   (2020-09-22): I believe this method will not need POST functionality
     elif request.method == 'POST':
-        pass 
+        print('start_mesocycle POST')
+        return render_template('start_workout.html')
 
 # NOTE(2020-09-22): If this route is called, the user has selected a meso to
 # start. Therefore, the backend logic (at some point) needs to determine:
@@ -115,29 +101,22 @@ def start_mesocycle():
 # intermediary - front end <--- views (this file) ---> back end.
 @app.route('/start_workout', methods=['GET','POST'])
 def start_workout():
-
     if request.method == 'GET':
-
         return render_template('start_workout.html')
-
     elif request.method == 'POST':
         pass
-
-    #return render_template('start_workout.html')
+        return render_template('start_workout.html')
 
 
 @app.route('/continue_mesocycle')
 def continue_mesocycle():
-
     return render_template('continue_mesocycle.html')
 
 @app.route('/create_one_off_workout')
 def create_workout():
-
     return render_template('create_workout.html')
 
 
 @app.route('/check_progress')
 def check_progress():
-
     return render_template('check_progress.html')

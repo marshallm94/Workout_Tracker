@@ -13,13 +13,24 @@ $ flask run
 
 # TODO
 
-* Understand how `redirect(url_for(<whatever>))` is different from
-`render_template(<whatever>)` and how that affects the HTTP request type
-(if at all)
+## Technical TODO's
 
 * Add weight column to "Create Periodization Strategy" and make it so one of the
 four options (weight, sets, reps, RPE/RIR) should remain open (the one that will
 be open for each workout)
+
+## Feature Level TODO's
+
+* Create the infrastructure so a coach could send a client a program (JSON).
+Effectively, have the ability to separate the "Create Mesocycle" and "Perform
+Mesocycle" onto separate devices.
+
+## "Understanding" Level TODO's
+
+* Understand how `redirect(url_for(<whatever>))` is different from
+`render_template(<whatever>)` and how that affects the HTTP request type
+(if at all)
+
 
 # Musings/Development Notes
 
