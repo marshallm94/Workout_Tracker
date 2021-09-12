@@ -8,9 +8,9 @@ import json
 data_directory = os.path.join("Workout_Tracker", "data/")
 examples_directory = os.path.join("Workout_Tracker", "examples/")
 
-########################################
+################################################################################
 # JSON file loads (for development phase) 
-########################################
+################################################################################
 with open(os.path.join(data_directory, 'display_mesocycle.json')) as f:
     display_meso = json.load(f)
 with open(os.path.join(data_directory, 'stage1.json')) as f:
@@ -27,9 +27,9 @@ def index():
 
     return render_template('index.html')
 
-########################################
+################################################################################
 # Mesocycle Creation Views
-########################################
+################################################################################
 @app.route('/create_mesocycle', methods=['GET','POST'])
 def create_mesocycle():
     if request.method == 'GET':
@@ -69,9 +69,9 @@ def review_mesocycle():
             split = display_meso,
             meso_length = meso_length)
 
-########################################
+################################################################################
 # Start Previously Defined Mesocycle Views
-########################################
+################################################################################
 @app.route('/start_mesocycle', methods=['GET','POST'])
 def start_mesocycle():
     if request.method == 'GET':
