@@ -1,4 +1,10 @@
-# Workout\_Tracker
+# YAWA - Yet Another Workout Application
+
+```bash
+cd YAWA
+npm install
+npm run dev
+```
 
 # To test:
 
