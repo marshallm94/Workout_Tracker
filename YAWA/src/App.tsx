@@ -1,13 +1,8 @@
-import { HelloWorld } from './components/HelloWorld'
-import './App.css'
+import { Main } from "@/components/main";
+import "@/App.css";
 
 function App() {
-  return (
-    <>
-      <h1>YAWA - Yet Another Workout App</h1>
-      <HelloWorld />
-    </>
-  )
+  return <Main />;
 }
 
-export default App
+export default App;
